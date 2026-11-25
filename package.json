@@ -1,0 +1,29 @@
+{
+  "name": "kazakhstan-travel-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kazakhstan Travel — Enterprise Adventure Tourism Platform, CMS/CRM & Omnichannel Booking Bots",
+  "workspaces": [
+    "packages/core",
+    "apps/web",
+    "apps/bots"
+  ],
+  "scripts": {
+    "dev": "npm --workspace=@kt/web run dev",
+    "build": "npm --workspace=@kt/core run build && npm --workspace=@kt/bots run build && npm --workspace=@kt/web run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bot:telegram": "npm --workspace=@kt/bots run start:telegram",
+    "bot:setup": "npm --workspace=@kt/bots run setup:telegram",
+    "seed": "npm --workspace=@kt/core run seed",
+    "typecheck": "npm --workspace=@kt/core run typecheck && npm --workspace=@kt/bots run typecheck && npm --workspace=@kt/web run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

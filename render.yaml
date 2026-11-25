@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: kazakhstan-travel
+    runtime: docker
+    branch: main
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: KT_DB_PATH
+        value: /app/data/kazakhstan-travel.db
+      - key: NEXT_IMAGE_UNOPTIMIZED
+        value: "1"
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: TELEGRAM_WEBHOOK_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_SITE_URL
+        value: ""
+      - key: TELEGRAM_BOT_TOKEN
+        value: ""
+      - key: TELEGRAM_BOT_USERNAME
+        value: travel32_bot
+      - key: NEXT_PUBLIC_TELEGRAM_BOT_USERNAME
+        value: travel32_bot
+      - key: TELEGRAM_MANAGER_CHAT_ID
+        value: ""
+    # Optional: when upgrading from free -> starter plan, attach a persistent disk for SQLite:
+    # disk:
+    #   name: kt-sqlite-data
+    #   mountPath: /app/data
+    #   sizeGB: 1

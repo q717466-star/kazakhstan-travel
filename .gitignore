@@ -1,0 +1,17 @@
+node_modules/
+.next/
+dist/
+out/
+build/
+coverage/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+data/*.db
+data/*.db-wal
+data/*.db-shm
+apps/web/public/uploads/*
+!apps/web/public/uploads/.gitkeep
+.DS_Store
+Thumbs.db

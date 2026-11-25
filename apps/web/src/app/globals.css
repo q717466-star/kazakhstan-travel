@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #FFFFFF;
+  --color-surface: #F5F5F6;
+  --color-surface-deep: #ECECEE;
+  --color-ink: #111111;
+  --color-ink-hover: #262626;
+  --color-muted: #737373;
+  --color-muted-display: #9A9AA0;
+  --color-star: #F5A623;
+  --color-hairline: rgba(17, 17, 17, 0.08);
+
+  --font-display: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background-color: #FFFFFF;
+    color: #111111;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #FFFFFF;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-mono-meta {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+/* Minimalist monochrome refinement for Leaflet atlas */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #F4F4F5;
+  z-index: 1;
+}
+
+.leaflet-tile-pane {
+  filter: saturate(0.85) contrast(1.02);
+}
+
+/* Website 03: Dark Cinema Map Tiles */
+.kt-site-root[data-design="cinema"] .leaflet-container {
+  background: #0B0D11;
+}
+
+.kt-site-root[data-design="cinema"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.84) contrast(1.08) saturate(0.45);
+}
+
+/* Website 02: Nomad Studio Monochrome Map Tiles */
+.kt-site-root[data-design="nomad"] .leaflet-container {
+  background: #EFECE6;
+}
+
+.kt-site-root[data-design="nomad"] .leaflet-tile-pane {
+  filter: grayscale(0.65) contrast(1.06);
+}
+
+/* Scoped inner-page adaptation for Website 03 (Dark Cinema) */
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) {
+  background-color: #050608;
+  color: #F5F1E8;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) :is(h1, h2, h3, h4) {
+  color: #F5F1E8;
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .bg-white {
+  background-color: #0D1016;
+  color: #F5F1E8;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .bg-\[\#FAFAFA\],
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .bg-\[\#F5F5F6\],
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .bg-\[\#ECECEE\] {
+  background-color: #141820;
+  color: #F5F1E8;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .bg-\[\#111111\] {
+  background-color: #D6B36A;
+  color: #050608;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .text-\[\#111111\],
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .text-\[\#262626\],
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .text-\[\#525252\] {
+  color: #EAE4D7;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .text-\[\#737373\],
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) .text-\[\#9A9AA0\] {
+  color: #9CA3AF;
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) :is(.border-black\/\[0\.06\], .border-black\/\[0\.07\], .border-black\/\[0\.08\], .border-black\/\[0\.1\]) {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.kt-site-root[data-design="cinema"] main > div:not(.kt-custom-view) :is(input, select, textarea) {
+  background-color: #0A0C10;
+  color: #F5F1E8;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Scoped inner-page adaptation for Website 02 (Nomad Studio) */
+.kt-site-root[data-design="nomad"] main > div:not(.kt-custom-view) {
+  background-color: #EFECE6;
+  color: #0E0E0E;
+}
+
+.kt-site-root[data-design="nomad"] main > div:not(.kt-custom-view) :is(h1, h2) {
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+.kt-site-root[data-design="nomad"] main > div:not(.kt-custom-view) .bg-\[\#111111\] {
+  background-color: #D94626;
+  color: #EFECE6;
+}
+
+.kt-site-root[data-design="nomad"] main > div:not(.kt-custom-view) :is(.border-black\/\[0\.06\], .border-black\/\[0\.07\], .border-black\/\[0\.08\], .border-black\/\[0\.1\]) {
+  border-color: rgba(14, 14, 14, 0.18);
+}
+
+/* Scoped inner-page adaptation for Website 04 (Horizon Portal) */
+.kt-site-root[data-design="horizon"] main > div:not(.kt-custom-view) .bg-\[\#111111\] {
+  background-color: #F41D48;
+  color: #FFFFFF;
+}
+
+/* Scoped inner-page adaptation for Website 05 (Voyage Sunlit) */
+.kt-site-root[data-design="voyage"] main > div:not(.kt-custom-view) .bg-\[\#111111\] {
+  background-color: #0284C7;
+  color: #FFFFFF;
+}
+
+/* Scoped inner-page adaptation for Website 06 (Aero Portal) */
+.kt-site-root[data-design="aero"] main > div:not(.kt-custom-view) .bg-\[\#111111\] {
+  background-color: #0EA5C6;
+  color: #FFFFFF;
+}
+
+.kt-map-pin {
+  background: transparent;
+  border: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes kt-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.kt-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: kt-marquee 42s linear infinite;
+}
+
+.kt-marquee-wrap:hover .kt-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .kt-marquee-track {
+    animation: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

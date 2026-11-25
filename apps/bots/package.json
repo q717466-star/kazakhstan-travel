@@ -1,0 +1,23 @@
+{
+  "name": "@kt/bots",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start:telegram": "npm --workspace=@kt/core run build && tsc && node dist/start-telegram.js",
+    "setup:telegram": "npm --workspace=@kt/core run build && tsc && node dist/setup-telegram.js"
+  },
+  "dependencies": {
+    "@kt/core": "*"
+  }
+}
